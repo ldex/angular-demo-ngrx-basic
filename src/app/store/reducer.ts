@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import { increment, decrement, reset } from './actions';
 
 export interface CountState {
@@ -15,6 +15,6 @@ const counterReducer = createReducer(initialState,
     on(reset, () => ({ counter: 0 })),
 );
 
-export function reducer(state, action) {
+export function reducer(state: CountState, action: Action) {
     return counterReducer(state, action);
 }
