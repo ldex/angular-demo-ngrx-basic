@@ -1,21 +1,19 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { increment, decrement, reset } from './store/actions';
 import { CountState } from './store/reducer';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  counter$: Observable<number>;
 
-  constructor(private store: Store<CountState>) {
-  //  this.counter$ = store.pipe(select(state => state.counter));
+  counter$: Observable<number> = this.store.select(appState => appState.counterReducer.counter);
 
-    this.counter$ = this.store.select(state => state.counter);
+  constructor(private store: Store<{ counterReducer: CountState}>) {
   }
 
   increment() {

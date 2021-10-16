@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from './../environments/environment';
-import { reducer } from './store/reducer';
+import { counterReducer } from './store/reducer';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { reducer } from './store/reducer';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({ counterReducer: reducer }),
+    StoreModule.forRoot({ counterReducer }),
     StoreDevtoolsModule.instrument({
       name: 'NgRx Basic Store App',
       logOnly: environment.production,
