@@ -13,7 +13,7 @@ import { counterReducer } from './store/reducer';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({ counterReducer }),
+    StoreModule.forRoot({ count: counterReducer }),
     StoreDevtoolsModule.instrument({
       name: 'NgRx Basic Store App',
       logOnly: environment.production,
